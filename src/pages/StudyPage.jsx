@@ -16,7 +16,7 @@ function StudyPage() {
     >
       <div className="overlay" />
 
-      <div className="login-card">
+      <div className={view === "openCase" ? "study-card-wide" : "login-card"}>
         <h2>The Study</h2>
         <p className="subtitle">Consulting Detective</p>
 
