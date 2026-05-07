@@ -8,6 +8,9 @@ import susNeg from "../CaseImgTest/The Library Murder on Kensington Row/suspekt-
 import susHou from "../CaseImgTest/The Library Murder on Kensington Row/suspekt-housekeeper.png";
 
 function OpenCaseFile({ questId , onClose}) {
+  const [selectedSuspect, setSelectedSuspect] = useState(null);
+  const [resultMessage, setResultMessage] = useState("");
+  const [theEndText, setTheEndText] = useState("");
   const [caseFile, setCaseFile] = useState(null);
   const [page, setPage] = useState(0);
 
@@ -36,6 +39,46 @@ function OpenCaseFile({ questId , onClose}) {
   const suspectImages = [susBut, susNef, susHou, susNeg];
 
   const suspects = caseFile.suspects || [];
+
+  const accuseSuspect = async () => {
+  if (selectedSuspect === null) {
+    setResultMessage("Choose a suspect first.");
+    return;
+  }
+
+  const token = localStorage.getItem("token");
+
+  const res = await fetch(`https://localhost:7060/api/quests/${questId}/accuse`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      suspectIndex: selectedSuspect,
+
+    }),
+  });
+
+  const data = await res.json();
+
+  if (!res.ok) {
+    setResultMessage(data.result);
+    setTheEndText(data.solutionText);
+    return;
+  }
+
+
+  setTheEndText(
+    `${data.solutionText} The case is now closed.`
+  )
+
+  setResultMessage(
+    data.result === "Solved"
+      ? "Correct. Case solved."
+      : "Wrong accusation. Case failed."
+  );
+};
 
   const pages = [
     {
@@ -107,21 +150,37 @@ function OpenCaseFile({ questId , onClose}) {
       ),
     },
     {
-      left: (
-        <>
-          <h3>Your Decision</h3>
-          <p>Who do you accuse?</p>
-        </>
-      ),
-      right: (
-        <>
-          <button>Accuse a Suspect</button>
-          <button className="secondary" onClick={onClose}>
-            Think Further
-          </button>
-        </>
-      ),
-    },
+  left: (
+    <>
+      <h3>Your Decision</h3>
+      <p>Who do you accuse?</p>
+
+      {suspects.map((s, index) => (
+        <label key={index} className="accuse-option">
+          <input
+            type="radio"
+            name="suspect"
+            checked={selectedSuspect === index}
+            onChange={() => setSelectedSuspect(index)}
+          />
+          {s.name}
+        </label>
+      ))}
+
+      {resultMessage && <p>{resultMessage}</p>}
+      {theEndText && <p>{theEndText}</p>}
+      
+    </>
+  ),
+  right: (
+    <>
+      <button onClick={accuseSuspect}>Accuse a Suspect</button>
+      <button className="secondary" onClick={onClose}>
+        Think Further
+      </button>
+    </>
+  ),
+},
   ];
 
   return (
