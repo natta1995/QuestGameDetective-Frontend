@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import CaseFiles from "../Components/CaseFiles";
 import MyCases from "../Components/MyCases";
 import OpenCaseFile from "../Components/OpenCaseFile";
@@ -33,9 +34,13 @@ function StudyPage() {
             <button onClick={() => setView("myCases")}>
               My Investigations
             </button>
-          </>
-        )}
 
+            <Link to="/hall" className="secondary">
+                Return to Entrance Hall
+            </Link>
+              </>
+        )}
+  
         {view === "caseFiles" && (
           <CaseFiles onClose={() => setView("menu")} />
         )}

@@ -7,7 +7,7 @@ import susBut from "../CaseImgTest/The Library Murder on Kensington Row/suspekt-
 import susNeg from "../CaseImgTest/The Library Murder on Kensington Row/suspekt-grannen.png";
 import susHou from "../CaseImgTest/The Library Murder on Kensington Row/suspekt-housekeeper.png";
 
-function OpenCaseFile({ questId , onClose}) {
+function OpenCaseFile({ questId, onClose }) {
   const [selectedSuspect, setSelectedSuspect] = useState(null);
   const [resultMessage, setResultMessage] = useState("");
   const [theEndText, setTheEndText] = useState("");
@@ -18,14 +18,11 @@ function OpenCaseFile({ questId , onClose}) {
     async function fetchCaseFile() {
       const token = localStorage.getItem("token");
 
-      const res = await fetch(
-        `https://localhost:7060/api/quests/${questId}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
+      const res = await fetch(`https://localhost:7060/api/quests/${questId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
 
       const data = await res.json();
       setCaseFile(data);
@@ -41,44 +38,43 @@ function OpenCaseFile({ questId , onClose}) {
   const suspects = caseFile.suspects || [];
 
   const accuseSuspect = async () => {
-  if (selectedSuspect === null) {
-    setResultMessage("Choose a suspect first.");
-    return;
-  }
+    if (selectedSuspect === null) {
+      setResultMessage("Choose a suspect first.");
+      return;
+    }
 
-  const token = localStorage.getItem("token");
+    const token = localStorage.getItem("token");
 
-  const res = await fetch(`https://localhost:7060/api/quests/${questId}/accuse`, {
-    method: "PUT",
-    headers: {
-      "Content-Type": "application/json",
-      Authorization: `Bearer ${token}`,
-    },
-    body: JSON.stringify({
-      suspectIndex: selectedSuspect,
+    const res = await fetch(
+      `https://localhost:7060/api/quests/${questId}/accuse`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+        body: JSON.stringify({
+          suspectIndex: selectedSuspect,
+        }),
+      },
+    );
 
-    }),
-  });
+    const data = await res.json();
 
-  const data = await res.json();
+    if (!res.ok) {
+      setResultMessage(data.result);
+      setTheEndText(data.solutionText);
+      return;
+    }
 
-  if (!res.ok) {
-    setResultMessage(data.result);
-    setTheEndText(data.solutionText);
-    return;
-  }
+    setTheEndText(`Solution: ${data.solutionText}`);
 
-
-  setTheEndText(
-    `${data.solutionText} The case is now closed.`
-  )
-
-  setResultMessage(
-    data.result === "Solved"
-      ? "Correct. Case solved."
-      : "Wrong accusation. Case failed."
-  );
-};
+    setResultMessage(
+      data.result === "Solved"
+        ? "You were correct. Scotland Yard extends its gratitude for your remarkable investigative efforts. The case is now considered solved."
+        : "An unfortunate accusation. Scotland Yard will assume control of the investigation from this point onward. Better fortune may await you in the next case.",
+    );
+  };
 
   const pages = [
     {
@@ -98,21 +94,17 @@ function OpenCaseFile({ questId , onClose}) {
       ),
     },
     {
-      left: (
-        <img src={victimImg} className="case-photo" />
-      ),
+      left: <img src={victimImg} className="case-photo" />,
       right: (
         <>
           <h3>The Victim</h3>
-          <p>{caseFile.victim}</p>
-          <p>{caseFile.place}</p>
+          <p>Name: {caseFile.victim}</p>
+          <p>Crimescen: {caseFile.place}</p>
         </>
       ),
     },
     {
-      left: (
-        <img src={crimeScenImg} className="case-photo" />
-      ),
+      left: <img src={crimeScenImg} className="case-photo" />,
       right: (
         <>
           <h3>Crime Scene</h3>
@@ -150,51 +142,53 @@ function OpenCaseFile({ questId , onClose}) {
       ),
     },
     {
-  left: (
-    <>
-      <h3>Your Decision</h3>
-      <p>Who do you accuse?</p>
+      left: (
+        <>
+          <h3>Your Decision</h3>
+          <p>Who do you accuse?</p>
 
-      {suspects.map((s, index) => (
-        <label key={index} className="accuse-option">
-          <input
-            type="radio"
-            name="suspect"
-            checked={selectedSuspect === index}
-            onChange={() => setSelectedSuspect(index)}
-          />
-          {s.name}
-        </label>
-      ))}
+          {suspects.map((s, index) => (
+            <label key={index} className="accuse-option">
+              <input
+                type="radio"
+                name="suspect"
+                checked={selectedSuspect === index}
+                onChange={() => setSelectedSuspect(index)}
+              />
+              {s.name}
+            </label>
+          ))}
 
-      {resultMessage && <p>{resultMessage}</p>}
-      {theEndText && <p>{theEndText}</p>}
-      
-    </>
-  ),
-  right: (
-    <>
-      <button onClick={accuseSuspect}>Accuse a Suspect</button>
-      <button className="secondary" onClick={onClose}>
-        Think Further
-      </button>
-    </>
-  ),
-},
+    
+
+          <button onClick={accuseSuspect}>Accuse a Suspect</button>
+        </>
+      ),
+      right: (
+        <>
+          {resultMessage && <p>{resultMessage}</p>}
+          {theEndText && <p>{theEndText}</p>}
+          <button className="secondary" onClick={onClose}>
+            Think Further
+          </button>
+        </>
+      ),
+    },
   ];
 
   return (
     <div className="book-wrapper">
       <div className="book">
-
-        <div className="page left-page">
-          {pages[page].left}
-        </div>
+        <div className="page left-page">{pages[page].left}</div>
 
         <div className="page right-page">
           {pages[page].right}
 
           <div className="file-navigation">
+            <button  onClick={onClose}>
+            Close folder
+          </button>
+
             <button onClick={() => setPage(page - 1)} disabled={page === 0}>
               Previous
             </button>
@@ -211,7 +205,6 @@ function OpenCaseFile({ questId , onClose}) {
             </button>
           </div>
         </div>
-
       </div>
     </div>
   );

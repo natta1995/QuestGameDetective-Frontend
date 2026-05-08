@@ -49,7 +49,7 @@ function CaseFiles({ onClose }) {
 
   return (
     <>
-      <p className="room-text">You open the drawer of available case files.</p>
+     
 
       {message && <p>{message}</p>}
 
