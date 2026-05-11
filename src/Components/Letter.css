@@ -1,0 +1,104 @@
+.letter-wrapper {
+  width: 90vw;
+  max-width: 1000px;
+  max-height: 90vh;
+  overflow-y: auto;
+  z-index: 2;
+}
+
+.letter-paper {
+  max-width: 760px;
+  margin: 3rem auto;
+  padding: 3rem;
+  background: #efe1c2;
+  color: #2b2118;
+  border: 1px solid #8a6a3f;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.35);
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.7;
+  position: relative;
+  overflow: hidden;
+
+  
+}
+
+.letter-paper h1 {
+  text-align: center;
+  font-size: 2.4rem;
+  letter-spacing: 0.08em;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+}
+
+.letter-paper h2 {
+  font-size: 1.4rem;
+  margin-top: 2rem;
+  border-bottom: 1px solid rgba(80, 50, 25, 0.35);
+  padding-bottom: 0.4rem;
+}
+
+.letter-paper p {
+  margin-bottom: 1rem;
+}
+
+.letter-paper ol {
+  padding-left: 1.5rem;
+}
+
+.letter-paper li {
+  margin-bottom: 0.7rem;
+}
+
+.signature {
+  margin-top: 1.5rem;
+  font-style: italic;
+  font-weight: bold;
+}
+
+.warning {
+  margin-top: 1.5rem;
+  padding: 1rem;
+  border-left: 4px solid #6d2f1a;
+  background: rgba(255, 255, 255, 0.25);
+  font-style: italic;
+}
+
+.letter-paper::before {
+  content: "SCOTLAND YARD";
+
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+
+  transform: translate(-50%, -50%) rotate(-25deg);
+
+  font-size: 6rem;
+  font-weight: bold;
+  letter-spacing: 0.5rem;
+
+  color: rgba(80, 50, 25, 0.08);
+
+  pointer-events: none;
+
+  white-space: nowrap;
+}
+
+.letter-wrapper::-webkit-scrollbar {
+  width: 12px;
+}
+
+.letter-wrapper::-webkit-scrollbar-track {
+  background: #2a2118;
+  border-left: 1px solid #5a4632;
+}
+
+.letter-wrapper::-webkit-scrollbar-thumb {
+  background: #8b6a3e;
+  border-radius: 8px;
+  border: 2px solid #2a2118;
+}
+
+.letter-wrapper::-webkit-scrollbar-thumb:hover {
+  background: #a37c47;
+}
