@@ -2,10 +2,13 @@
   height: 100vh;
   background-size: cover;
   background-position: center;
-  position: relative;
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: center;
+  inset: 0;
+  padding: 2rem;
+  
 
 }
 
@@ -352,7 +355,8 @@ button {
 }
 
 
-/* /StudyPage Butler */
+
+
 
 .butler-view {
 
@@ -365,11 +369,10 @@ button {
   justify-content: center;
   position: fixed;
   inset: 0;
-  z-index: 9999;
+ 
 
   
   background-repeat: no-repeat;
-
   display: flex;
   align-items: center;
  
