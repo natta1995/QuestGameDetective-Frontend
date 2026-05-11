@@ -9,6 +9,7 @@ import susHou from "../CaseImgTest/The Library Murder on Kensington Row/suspekt-
 
 function OpenCaseFile({ questId, onClose }) {
   const [selectedSuspect, setSelectedSuspect] = useState(null);
+  const [selectedImg, setSelectedImg] = useState(null)
   const [resultMessage, setResultMessage] = useState("");
   const [theEndText, setTheEndText] = useState("");
   const [caseFile, setCaseFile] = useState(null);
@@ -94,7 +95,7 @@ function OpenCaseFile({ questId, onClose }) {
       ),
     },
     {
-      left: <img src={victimImg} className="case-photo" />,
+      left: <img src={victimImg} className="case-photo" onClick={() => setSelectedImg(victimImg)} />,
       right: (
         <>
           <h3>The Victim</h3>
@@ -104,7 +105,7 @@ function OpenCaseFile({ questId, onClose }) {
       ),
     },
     {
-      left: <img src={crimeScenImg} className="case-photo" />,
+      left: <img src={crimeScenImg} className="case-photo" onClick={() => setSelectedImg(crimeScenImg)} />,
       right: (
         <>
           <h3>Crime Scene</h3>
@@ -118,7 +119,7 @@ function OpenCaseFile({ questId, onClose }) {
         <>
           {suspects.slice(0, 2).map((s, i) => (
             <div key={i} className="suspect-card">
-              <img src={suspectImages[i]} className="suspect-img" />
+              <img src={suspectImages[i]} className="suspect-img" onClick={() => setSelectedImg(suspectImages[i])} />
               <div>
                 <h4>{s.name}</h4>
                 <p>{s.statement}</p>
@@ -131,7 +132,7 @@ function OpenCaseFile({ questId, onClose }) {
         <>
           {suspects.slice(2, 4).map((s, i) => (
             <div key={i} className="suspect-card">
-              <img src={suspectImages[i + 2]} className="suspect-img" />
+              <img src={suspectImages[i + 2]} className="suspect-img" onClick={() => setSelectedImg(suspectImages[i + 2])} />
               <div>
                 <h4>{s.name}</h4>
                 <p>{s.statement}</p>
@@ -206,6 +207,11 @@ function OpenCaseFile({ questId, onClose }) {
           </div>
         </div>
       </div>
+      {selectedImg && (
+  <div className="image-modal" onClick={() => setSelectedImg(null)}>
+    <img src={selectedImg} className="image-modal-content" />
+  </div>
+)}
     </div>
   );
 }

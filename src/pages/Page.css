@@ -327,3 +327,26 @@ button {
   border-top: 1px solid rgba(58, 36, 20, 0.25);
   padding-top: 14px;
 }
+
+
+/* Bilder för OpenCaseFile  */
+.clickable-image {
+  cursor: zoom-in;
+}
+
+.image-modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.image-modal-content {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  cursor: zoom-out;
+}
