@@ -186,11 +186,11 @@ function OpenCaseFile({ questId, onClose }) {
           {pages[page].right}
 
           <div className="file-navigation">
-            <button  onClick={onClose}>
+            <button className="open-case-file-button" onClick={onClose}>
             Close folder
           </button>
 
-            <button onClick={() => setPage(page - 1)} disabled={page === 0}>
+            <button className="open-case-file-button" onClick={() => setPage(page - 1)} disabled={page === 0}>
               Previous
             </button>
 
@@ -199,6 +199,7 @@ function OpenCaseFile({ questId, onClose }) {
             </span>
 
             <button
+              className="open-case-file-button"
               onClick={() => setPage(page + 1)}
               disabled={page === pages.length - 1}
             >
