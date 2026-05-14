@@ -1,15 +1,8 @@
 import { useEffect, useState } from "react";
 
-import victimImg from "../CaseImgTest/The Library Murder on Kensington Row/Victim.png";
-import crimeScenImg from "../CaseImgTest/The Library Murder on Kensington Row/Crimescen.png";
-import susNef from "../CaseImgTest/The Library Murder on Kensington Row/suspektMbror.png";
-import susBut from "../CaseImgTest/The Library Murder on Kensington Row/suspekt-butler.png";
-import susNeg from "../CaseImgTest/The Library Murder on Kensington Row/suspekt-grannen.png";
-import susHou from "../CaseImgTest/The Library Murder on Kensington Row/suspekt-housekeeper.png";
-
 function OpenCaseFile({ questId, onClose }) {
   const [selectedSuspect, setSelectedSuspect] = useState(null);
-  const [selectedImg, setSelectedImg] = useState(null)
+  const [selectedImg, setSelectedImg] = useState(null);
   const [resultMessage, setResultMessage] = useState("");
   const [theEndText, setTheEndText] = useState("");
   const [caseFile, setCaseFile] = useState(null);
@@ -33,8 +26,6 @@ function OpenCaseFile({ questId, onClose }) {
   }, [questId]);
 
   if (!caseFile) return <p>Opening case file...</p>;
-
-  const suspectImages = [susBut, susNef, susHou, susNeg];
 
   const suspects = caseFile.suspects || [];
 
@@ -95,7 +86,7 @@ function OpenCaseFile({ questId, onClose }) {
       ),
     },
     {
-      left: <img src={victimImg} className="case-photo" onClick={() => setSelectedImg(victimImg)} />,
+      left: <img src={`/img/cases/${caseFile.victimImg}`} className="case-photo"alt="Victim" />,
       right: (
         <>
           <h3>The Victim</h3>
@@ -105,7 +96,9 @@ function OpenCaseFile({ questId, onClose }) {
       ),
     },
     {
-      left: <img src={crimeScenImg} className="case-photo" onClick={() => setSelectedImg(crimeScenImg)} />,
+      left: (
+        <img src={`/img/cases/${caseFile.crimeSceneImg}`} className="case-photo"alt="Crime Scene" />
+      ),
       right: (
         <>
           <h3>Crime Scene</h3>
@@ -119,7 +112,7 @@ function OpenCaseFile({ questId, onClose }) {
         <>
           {suspects.slice(0, 2).map((s, i) => (
             <div key={i} className="suspect-card">
-              <img src={suspectImages[i]} className="suspect-img" onClick={() => setSelectedImg(suspectImages[i])} />
+              <img src={`/img/cases/${s.suspectImg}`} className="suspect-img" alt={s.name} />
               <div>
                 <h4>{s.name}</h4>
                 <p>{s.statement}</p>
@@ -132,7 +125,7 @@ function OpenCaseFile({ questId, onClose }) {
         <>
           {suspects.slice(2, 4).map((s, i) => (
             <div key={i} className="suspect-card">
-              <img src={suspectImages[i + 2]} className="suspect-img" onClick={() => setSelectedImg(suspectImages[i + 2])} />
+              <img src={`/img/cases/${s.suspectImg}`} className="suspect-img" alt={s.name} />
               <div>
                 <h4>{s.name}</h4>
                 <p>{s.statement}</p>
@@ -160,8 +153,6 @@ function OpenCaseFile({ questId, onClose }) {
             </label>
           ))}
 
-    
-
           <button onClick={accuseSuspect}>Accuse a Suspect</button>
         </>
       ),
@@ -172,10 +163,13 @@ function OpenCaseFile({ questId, onClose }) {
           <button className="secondary" onClick={onClose}>
             Think Further
           </button>
+          
         </>
       ),
     },
   ];
+  
+  console.log("Case file data:", caseFile);
 
   return (
     <div className="book-wrapper">
@@ -187,10 +181,14 @@ function OpenCaseFile({ questId, onClose }) {
 
           <div className="file-navigation">
             <button className="open-case-file-button" onClick={onClose}>
-            Close folder
-          </button>
+              Close folder
+            </button>
 
-            <button className="open-case-file-button" onClick={() => setPage(page - 1)} disabled={page === 0}>
+            <button
+              className="open-case-file-button"
+              onClick={() => setPage(page - 1)}
+              disabled={page === 0}
+            >
               Previous
             </button>
 
@@ -209,10 +207,10 @@ function OpenCaseFile({ questId, onClose }) {
         </div>
       </div>
       {selectedImg && (
-  <div className="image-modal" onClick={() => setSelectedImg(null)}>
-    <img src={selectedImg} className="image-modal-content" />
-  </div>
-)}
+        <div className="image-modal" onClick={() => setSelectedImg(null)}>
+          <img src={selectedImg} className="image-modal-content" />
+        </div>
+      )}
     </div>
   );
 }
