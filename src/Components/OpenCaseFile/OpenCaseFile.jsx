@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import ScotlandyardLogo from "../Img/ScotlandyardImg.png";
+import ScotlandyardLogo from "../../Img/ScotlandyardImg.png";
+import "./OpenCaseFile.css";
 
 function OpenCaseFile({ questId, onClose }) {
   const [selectedSuspect, setSelectedSuspect] = useState(null);

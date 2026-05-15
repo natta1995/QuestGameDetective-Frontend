@@ -18,8 +18,6 @@
   line-height: 1.7;
   position: relative;
   overflow: hidden;
-
-  
 }
 
 .letter-paper h1 {
@@ -65,22 +63,15 @@
 
 .letter-paper::before {
   content: "SCOTLAND YARD";
-
   position: absolute;
-
   top: 50%;
   left: 50%;
-
   transform: translate(-50%, -50%) rotate(-25deg);
-
   font-size: 6rem;
   font-weight: bold;
   letter-spacing: 0.5rem;
-
   color: rgba(80, 50, 25, 0.08);
-
   pointer-events: none;
-
   white-space: nowrap;
 }
 

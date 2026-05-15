@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import CaseFiles from "../../Components/CaseFiles";
-import MyCases from "../../Components/MyCases";
-import OpenCaseFile from "../../Components/OpenCaseFile";
+import CaseFiles from "../../Components/CaseFiles/CaseFiles";
+import MyCases from "../../Components/MyCases/MyCases";
+import OpenCaseFile from "../../Components/OpenCaseFile/OpenCaseFile";
 import studyImg from "../../Img/StudyImg.png";
 import "./StudyPage.css";
 
