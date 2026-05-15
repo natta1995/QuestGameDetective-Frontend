@@ -14,12 +14,17 @@ function StudyPage() {
     <div className="study-page" style={{ backgroundImage: `url(${studyImg})` }}>
       <div className="overlay" />
 
-      <div className={view === "openCase" ? "study-card-wide" : "study-card"}>
-        <h2>The Study</h2>
-        <p className="subtitle">Consulting Detective</p>
-
+      <div
+        className={
+          view === "openCase" || view === "caseFiles"
+            ? "study-card-wide"
+            : "study-card"
+        }
+      >
         {view === "menu" && (
           <>
+            <h2>The Study</h2>
+            <p className="subtitle">Consulting Detective</p>
             <p className="room-text">
               The fire crackles softly. Case files rest upon your desk.
             </p>
