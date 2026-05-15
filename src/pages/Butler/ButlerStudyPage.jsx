@@ -1,10 +1,10 @@
-import {butlerMessages} from "../data/ButlerMessages";
-import backgroundImgButler from "../Img/StudyImgButler.png";
+import { butlerMessages } from "../../data/ButlerMessages";
+import bgImg from "../../Img/StudyImgButler.png";
 import { useNavigate } from "react-router-dom";
 
 import { useEffect, useState } from "react";
 
-const  ButlerStudyPage = () => {
+const ButlerStudyPage = () => {
   const [message, setMessage] = useState("");
 
   const navigate = useNavigate();
@@ -20,16 +20,14 @@ const  ButlerStudyPage = () => {
     return () => clearTimeout(timer);
   }, []);
 
-return (
-  <div
-  className="butler-view"
-  style={{ backgroundImage: `url(${backgroundImgButler})` }}
->
-  <div className="butler-message">
-    {message}
-  </div>
-</div>
-);
-}
+  return (
+    <div
+      className="butler-view"
+      style={{ backgroundImage: `url(${bgImg})` }}
+    >
+      <div className="butler-message">{message}</div>
+    </div>
+  );
+};
 
 export default ButlerStudyPage;

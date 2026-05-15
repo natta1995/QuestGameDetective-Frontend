@@ -1,23 +1,20 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import CaseFiles from "../Components/CaseFiles";
-import MyCases from "../Components/MyCases";
-import OpenCaseFile from "../Components/OpenCaseFile";
-import studyImg from "../Img/StudyImg.png";
-import "./Page.css";
+import CaseFiles from "../../Components/CaseFiles";
+import MyCases from "../../Components/MyCases";
+import OpenCaseFile from "../../Components/OpenCaseFile";
+import studyImg from "../../Img/StudyImg.png";
+import "./StudyPage.css";
 
 function StudyPage() {
   const [view, setView] = useState("menu");
   const [selectedQuestId, setSelectedQuestId] = useState(null);
 
   return (
-    <div
-      className="login-page"
-      style={{ backgroundImage: `url(${studyImg})` }}
-    >
+    <div className="study-page" style={{ backgroundImage: `url(${studyImg})` }}>
       <div className="overlay" />
 
-      <div className={view === "openCase" ? "study-card-wide" : "login-card"}>
+      <div className={view === "openCase" ? "study-card-wide" : "study-card"}>
         <h2>The Study</h2>
         <p className="subtitle">Consulting Detective</p>
 
@@ -35,19 +32,17 @@ function StudyPage() {
               My Investigations
             </button>
 
-              <Link to="/study/butler" className="secondary">
-                Call the Butler
-              </Link>
+            <Link to="/study/butler" className="secondary">
+              Call the Butler
+            </Link>
 
             <Link to="/hall" className="secondary">
-                Return to Entrance Hall
+              Return to Entrance Hall
             </Link>
-              </>
+          </>
         )}
-  
-        {view === "caseFiles" && (
-          <CaseFiles onClose={() => setView("menu")} />
-        )}
+
+        {view === "caseFiles" && <CaseFiles onClose={() => setView("menu")} />}
 
         {view === "myCases" && (
           <MyCases
@@ -60,15 +55,14 @@ function StudyPage() {
         )}
 
         {view === "openCase" && (
-        <OpenCaseFile
-          questId={selectedQuestId}
-          onClose={() => setView("myCases")}
-        />
-      )}
-      {view === "butlerView" && (
-        <ButlerView onClose={() => setView("menu")} />
-      )}
-       
+          <OpenCaseFile
+            questId={selectedQuestId}
+            onClose={() => setView("myCases")}
+          />
+        )}
+        {view === "butlerView" && (
+          <ButlerView onClose={() => setView("menu")} />
+        )}
       </div>
     </div>
   );

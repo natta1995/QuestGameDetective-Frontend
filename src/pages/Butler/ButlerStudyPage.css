@@ -1,0 +1,23 @@
+.butler-view {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  inset: 0;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  padding: 3rem;
+}
+
+.butler-message {
+  max-width: 700px;
+  background: rgba(20, 15, 10, 0.78);
+  color: #f3ead8;
+  padding: 2rem;
+  border-radius: 12px;
+  font-size: 1.1rem;
+}
