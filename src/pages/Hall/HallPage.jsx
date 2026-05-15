@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import bgImg from "../../Img/HallImg.png";
 import { useState } from "react";
-import Letter from "../../Components/Letter";
+import Letter from "../../Components/Letter/Letter";
 import "./HallPage.css";
 
 function HallPage() {

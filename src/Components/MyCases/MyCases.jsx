@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import "./MyCases.css";
 
 function MyCases({ onClose, onOpenCase }) {
   const [quests, setQuests] = useState([]);
@@ -26,7 +27,6 @@ function MyCases({ onClose, onOpenCase }) {
     fetchQuests();
   }, []);
 
-
   return (
     <>
       <p className="room-text">
@@ -43,7 +43,6 @@ function MyCases({ onClose, onOpenCase }) {
             onClick={() => onOpenCase(quest.questId)}
           >
             <h3>{quest.title}</h3>
-          
           </div>
         ))}
       </div>

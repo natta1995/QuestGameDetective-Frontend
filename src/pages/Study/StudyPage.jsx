@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import CaseFiles from "../../Components/CaseFiles";
-import MyCases from "../../Components/MyCases";
-import OpenCaseFile from "../../Components/OpenCaseFile";
+import CaseFiles from "../../Components/CaseFiles/CaseFiles";
+import MyCases from "../../Components/MyCases/MyCases";
+import OpenCaseFile from "../../Components/OpenCaseFile/OpenCaseFile";
 import studyImg from "../../Img/StudyImg.png";
 import "./StudyPage.css";
 
@@ -14,12 +14,17 @@ function StudyPage() {
     <div className="study-page" style={{ backgroundImage: `url(${studyImg})` }}>
       <div className="overlay" />
 
-      <div className={view === "openCase" ? "study-card-wide" : "study-card"}>
-        <h2>The Study</h2>
-        <p className="subtitle">Consulting Detective</p>
-
+      <div
+        className={
+          view === "openCase" || view === "caseFiles"
+            ? "study-card-wide"
+            : "study-card"
+        }
+      >
         {view === "menu" && (
           <>
+            <h2>The Study</h2>
+            <p className="subtitle">Consulting Detective</p>
             <p className="room-text">
               The fire crackles softly. Case files rest upon your desk.
             </p>
