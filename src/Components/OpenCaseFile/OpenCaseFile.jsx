@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import ScotlandyardLogo from "../../Img/ScotlandyardImg.png";
 import "./OpenCaseFile.css";
+import BgPaper from "../../Img/BgPaper.png";
 
 function OpenCaseFile({ questId, onClose }) {
   const [selectedSuspect, setSelectedSuspect] = useState(null);
@@ -72,133 +73,167 @@ function OpenCaseFile({ questId, onClose }) {
 
   const pages = [
     {
-      left: (
+      left: <>
+      
+      </>,
+      right: (
         <>
+           <div className="top-secret-stamp">
+            TOP SECRET
+          </div>
+          <h1 className="FirstPageH1">Scotland Yard</h1>
+          
+          
+          <img
+            src={ScotlandyardLogo}
+            alt="Scotland Yard Logo"
+            className="logo"
+          />
+          
+         <h2>CASE FILE</h2>
         </>
+      ),
+    },
+    {
+      left: (
+        <img
+          src={`/img/cases/${caseFile.victimImg}`}
+          className="case-photo clickable-image"
+          alt="Victim"
+          onClick={() => setSelectedImg(`/img/cases/${caseFile.victimImg}`)}
+        />
       ),
       right: (
         <>
-          <h1>Scotland Yard</h1>
-          <img src={ScotlandyardLogo} alt="Scotland Yard Logo" className="logo" />
           <h4>{caseFile.title}</h4>
-          <p>{caseFile.shortSummary}</p>
-        </>
-      ),
-    },
-    {
-      left: <img src={`/img/cases/${caseFile.victimImg}`} className="case-photo"alt="Victim" />,
-      right: (
-        <>
-          <h3>The Victim</h3>
-          <p>Name: {caseFile.victim}</p>
-          <p>Crimescen: {caseFile.place}</p>
+          <p>Victim: {caseFile.victim}</p>
+          <p>Short Summary: {caseFile.shortSummary}</p>
+          <p>Crime Scene: {caseFile.place}</p>
+          <p>Cause of Death: {caseFile.weapon}</p>
         </>
       ),
     },
     {
       left: (
-        <img src={`/img/cases/${caseFile.crimeSceneImg}`} className="case-photo"alt="Crime Scene" />
+        <img
+          src={`/img/cases/${caseFile.crimeSceneImg}`}
+          className="case-photo clickable-image"
+          alt="Crime Scene"
+          onClick={() => setSelectedImg(`/img/cases/${caseFile.crimeSceneImg}`)}
+        />
       ),
       right: (
         <>
           <h3>Crime Scene</h3>
           <p>{caseFile.crimeSceneDescription}</p>
-          <p>{caseFile.weapon}</p>
+       
         </>
       ),
-    },     
+    },
     {
-  left: (
-    <>
-      <div className="suspect-card">
-        <img
-          src={`/img/cases/${suspects[0]?.suspectImg}`}
-          className="suspect-img"
-          alt={suspects[0]?.name}
-        />
-
-        <div>
-          <h4>{suspects[0]?.name}</h4>
-          <h4>{suspects[0]?.role}</h4>
-          <p>{suspects[0]?.statement}</p>
-        </div>
-      </div>
-    </>
-  ),
-
-  right: (
-    <>
-      <div className="suspect-card">
-        <img
-          src={`/img/cases/${suspects[1]?.suspectImg}`}
-          className="suspect-img"
-          alt={suspects[1]?.name}
-        />
-
-        <div>
-          <h4>{suspects[1]?.name}</h4>
-           <h4>{suspects[1]?.role}</h4>
-          <p>{suspects[1]?.statement}</p>
-        </div>
-      </div>
-    </>
-  ),
-},
-
-{
-  left: (
-    <>
-      <div className="suspect-card">
-        <img
-          src={`/img/cases/${suspects[2]?.suspectImg}`}
-          className="suspect-img"
-          alt={suspects[2]?.name}
-        />
-
-        <div>
-          <h4>{suspects[2]?.name}</h4>
-          <h4>{suspects[2]?.role}</h4>
-          <p>{suspects[2]?.statement}</p>
-        </div>
-      </div>
-    </>
-  ),
-
-  right: (
-    <>
-      <div className="suspect-card">
-        <img
-          src={`/img/cases/${suspects[3]?.suspectImg}`}
-          className="suspect-img"
-          alt={suspects[3]?.name}
-        />
-
-        <div>
-          <h4>{suspects[3]?.name}</h4>
-          <h4>{suspects[3]?.role}</h4>
-          <p>{suspects[3]?.statement}</p>
-        </div>
-      </div>
-    </>
-  ),
-},
-
-{
       left: (
-       <>
-       <p>Förhörsledarens anteckningar</p>
-        {suspects.map((s, index) => (
-            <label key={index}>
-             <p>{s.name} - {s.role}</p>
-             <p>{s.inInvestigatorsNotes}</p> 
+        <>
+          <div className="suspect-card">
+            <img
+              src={`/img/cases/${suspects[0]?.suspectImg}`}
+              className="suspect-img clickable-image"
+              alt={suspects[0]?.name}
+              onClick={() => setSelectedImg(`/img/cases/${suspects[0]?.suspectImg}`)}
+            />
 
+            <div>
+              <h4>{suspects[0]?.name}</h4>
+              <h4>{suspects[0]?.role}</h4>
+              <p>{suspects[0]?.statement}</p>
+            </div>
+          </div>
+        </>
+      ),
+
+      right: (
+        <>
+          <div className="suspect-card">
+            <img
+              src={`/img/cases/${suspects[1]?.suspectImg}`}
+              className="suspect-img clickable-image"
+              alt={suspects[1]?.name}
+              onClick={() => setSelectedImg(`/img/cases/${suspects[1]?.suspectImg}`)}
+            />
+
+            <div>
+              <h4>{suspects[1]?.name}</h4>
+              <h4>{suspects[1]?.role}</h4>
+              <p>{suspects[1]?.statement}</p>
+            </div>
+          </div>
+        </>
+      ),
+    },
+
+    {
+      left: (
+        <>
+          <div className="suspect-card">
+            <img
+              src={`/img/cases/${suspects[2]?.suspectImg}`}
+              className="suspect-img clickable-image"
+              alt={suspects[2]?.name}
+              onClick={() => setSelectedImg(`/img/cases/${suspects[2]?.suspectImg}`)}
+            />
+
+            <div>
+              <h4>{suspects[2]?.name}</h4>
+              <h4>{suspects[2]?.role}</h4>
+              <p>{suspects[2]?.statement}</p>
+            </div>
+          </div>
+        </>
+      ),
+
+      right: (
+        <>
+          <div className="suspect-card">
+            <img
+              src={`/img/cases/${suspects[3]?.suspectImg}`}
+              className="suspect-img clickable-image"
+              alt={suspects[3]?.name}
+              onClick={() => setSelectedImg(`/img/cases/${suspects[3]?.suspectImg}`)}
+            />
+
+            <div>
+              <h4>{suspects[3]?.name}</h4>
+              <h4>{suspects[3]?.role}</h4>
+              <p>{suspects[3]?.statement}</p>
+            </div>
+          </div>
+        </>
+      ),
+    },
+
+    {
+      left: (
+        <>
+          <p className="cops-handmade-notes">Investigators' Notes :</p>
+          {suspects.map((s, index) => (
+            <label key={index}>
+              <p className="cops-handmade-notes">
+                {s.name} - {s.role}
+              </p>
+              <p className="cops-handmade-notes">
+                {s.inInvestigatorsNotes}
+              </p>
             </label>
           ))}
-       </>
+        </>
       ),
       right: (
         <>
-        <img src={`/img/cases/${caseFile.clueImg}`} className="case-photo"alt="Clue?" />
+          <img
+            src={`/img/cases/${caseFile.clueImg}`}
+            className="case-photo clickable-image"
+            alt="Clue?"
+            onClick={() => setSelectedImg(`/img/cases/${caseFile.clueImg}`)}
+          />
         </>
       ),
     },
@@ -216,9 +251,7 @@ function OpenCaseFile({ questId, onClose }) {
                 checked={selectedSuspect === index}
                 onChange={() => setSelectedSuspect(index)}
               />
-            {s.name} - {s.role}
-              
-            
+              {s.name} - {s.role}
             </label>
           ))}
 
@@ -232,50 +265,71 @@ function OpenCaseFile({ questId, onClose }) {
           <button className="secondary" onClick={onClose}>
             Think Further
           </button>
-          
         </>
       ),
     },
   ];
-  
+
   console.log("Case file data:", caseFile);
   console.log("Suspects data:", suspects);
 
+  const isFirstPage = page === 0;
+  const isLastPage = page === pages.length - 1;
+
   return (
     <div className="book-wrapper">
-      <div className="book">
-        <div className="page left-page">{pages[page].left}</div>
+     <div
+  className={`
+    book
+    ${isFirstPage || isLastPage ? "single-page-book" : ""}
+    ${isLastPage ? "last-page-book" : ""}
+  `}
+  style={{ backgroundImage: `url(${BgPaper})` }}
+>
 
-        <div className="page right-page">
-          {pages[page].right}
+  {!isFirstPage && (
+    <div className="page left-page">
+      {pages[page].left}
+    </div>
+  )}
 
-          <div className="file-navigation">
-            <button className="open-case-file-button" onClick={onClose}>
-              Close folder
-            </button>
+  {!isLastPage && (
+    <div className="page right-page">
+      {pages[page].right}
 
-            <button
-              className="open-case-file-button"
-              onClick={() => setPage(page - 1)}
-              disabled={page === 0}
-            >
-              Previous
-            </button>
+      
+    </div>
+  )}
 
-            <span>
-              Page {page + 1} / {pages.length}
-            </span>
+</div>
+          <div className="outside-navigation">
 
-            <button
-              className="open-case-file-button"
-              onClick={() => setPage(page + 1)}
-              disabled={page === pages.length - 1}
-            >
-              Next
-            </button>
-          </div>
-        </div>
-      </div>
+  <button
+    className="side-nav-button left-nav"
+    onClick={() => setPage(page - 1)}
+    disabled={page === 0}
+  >
+    ◀ Previous
+  </button>
+
+  <button
+    className="side-nav-button right-nav"
+    onClick={() => setPage(page + 1)}
+    disabled={page === pages.length - 1}
+  >
+    Next ▶
+  </button>
+
+  <button
+    className="close-folder-button"
+    onClick={onClose}
+  >
+    Close
+  </button>
+
+
+
+</div>
       {selectedImg && (
         <div className="image-modal" onClick={() => setSelectedImg(null)}>
           <img src={selectedImg} className="image-modal-content" />

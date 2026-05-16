@@ -14,13 +14,15 @@ function StudyPage() {
     <div className="study-page" style={{ backgroundImage: `url(${studyImg})` }}>
       <div className="overlay" />
 
-      <div
-        className={
-          view === "openCase" || view === "caseFiles" || view === "myCases"
-            ? "study-card-wide"
-            : "study-card"
-        }
-      >
+ <div
+  className={
+    view === "openCase"
+      ? "study-card-open-case"
+      : view === "caseFiles" || view === "myCases"
+        ? "study-card-wide"
+        : "study-card"
+  }
+>
         {view === "menu" && (
           <>
             <h2>The Study</h2>

@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Special+Elite&display=swap');
+
 button {
   cursor: pointer;
 }
@@ -22,9 +24,9 @@ button {
 
 .book {
   display: flex;
-  width: 980px;
+  width: 1100px;
   max-width: 95vw;
-  min-height: 560px;
+  min-height: 700px;
 
   background: #d9b66f;
   color: #2b1b10;
@@ -63,6 +65,10 @@ button {
   font-weight: bold;
 }
 
+.last-page-book::before {
+  content: "";
+}
+
 .book::after {
   content: "";
   position: absolute;
@@ -70,7 +76,7 @@ button {
   bottom: 0;
   left: 50%;
   width: 18px;
-  transform: translateX(-50%);
+  transform: translateX(-70%);
 
   background: linear-gradient(
     90deg,
@@ -85,13 +91,16 @@ button {
 .page {
   width: 50%;
   padding: 34px;
-  background:
+  /* background:
     linear-gradient(
       rgba(255, 248, 220, 0.82),
       rgba(236, 213, 163, 0.88)
-    );
 
-  min-height: 560px;
+      
+    ); */
+ overflow-y: auto;
+ overflow-x: hidden;
+min-height: 560px;
 }
 
 .left-page {
@@ -111,14 +120,14 @@ button {
   text-shadow: none;
 
   border-bottom: 1px solid rgba(58, 36, 20, 0.25);
-
+  white-space: pre-line;
   padding-bottom: 8px;
   margin-bottom: 18px;
 }
 
 .case-photo {
   width: 100%;
-  max-height: 280px;
+  max-height: 380px;
 
   object-fit: cover;
   object-position: top;
@@ -162,16 +171,19 @@ button {
   filter: sepia(0.2);
 }
 
-.file-navigation {
+
+ .file-navigation {
   display: flex;
+
   align-items: center;
-  justify-content: space-between;
 
-  gap: 8px;
+  justify-content: center;
 
-  border-top: 1px solid rgba(58, 36, 20, 0.25);
+  gap: 14px;
 
-  padding-top: 14px;
+  margin-top: 8px;
+
+  transform: translateY(-12px);
 }
 
 .image-modal {
@@ -179,7 +191,7 @@ button {
   inset: 0;
 
   background: rgba(0, 0, 0, 0.85);
-
+  backdrop-filter: blur(4px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -210,19 +222,246 @@ button {
   transition: all 0.2s ease;
 }
 
-.logo {
-  width: 90%;
-
+ .logo {
   opacity: 0.98;
-
   filter:
     contrast(120%)
     brightness(70%)
     blur(0.3px);
+  mix-blend-mode: multiply;
+} 
 
-  transform: rotate(-8deg);
+p {
+  white-space: pre-line;
+}
+
+.clickable-image {
+  cursor: zoom-in;
+
+  transition: all 0.2s ease;
+}
+
+.clickable-image:hover {
+  filter:
+    sepia(0.25)
+    contrast(1)
+    brightness(1.05);
+
+  transform: scale(1.01);
+}
+
+.image-modal-content {
+  max-width: 92vw;
+  max-height: 92vh;
+
+  object-fit: contain;
+
+  cursor: zoom-in;
+
+  transition: transform 0.25s ease;
+}
+
+.image-modal-content:hover {
+  transform: scale(1.15);
+}
+
+.cops-handmade-notes {
+  font-family: "Special Elite", cursive;
+
+  font-size: 14px;
+
+  line-height: 1.8;
+
+  color: rgba(45, 25, 10, 0.92);
+}
+
+.study-card-open-case {
+  position: relative;
+
+  z-index: 2;
+
+  width: 100%;
+
+  height: 100%;
+
+  display: flex;
+
+  justify-content: center;
+
+  align-items: center;
+
+  flex-direction: column;
+
+  padding: 0;
+
+  background: transparent;
+
+  border: none;
+
+  box-shadow: none;
+
+  backdrop-filter: none;
+}
+.book-wrapper {
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+}
+
+.outside-navigation {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+}
+
+.side-nav-button {
+  position: absolute;
+
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  padding: 12px 18px;
+
+  background: rgba(15, 15, 15, 0.92);
+
+  color: #d4af37;
+
+  border: 1px solid rgba(212, 175, 55, 0.45);
+
+  border-radius: 8px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+
+  pointer-events: auto;
+
+  z-index: 50;
+}
+
+.side-nav-button:hover {
+  background: goldenrod;
+
+  color: black;
+}
+
+.left-nav {
+  left: 15px;
+}
+.right-nav {
+  right: 15px;
+}
+
+.close-folder-button {
+  position: absolute;
+
+  top: -5px;
+
+  right: 0;
+
+  padding: 10px 16px;
+
+  background: rgba(15, 15, 15, 0.92);
+
+  color: #d4af37;
+
+  border: 1px solid rgba(212, 175, 55, 0.45);
+
+  border-radius: 8px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+
+  pointer-events: auto;
+
+  z-index: 50;
+}
+
+.close-folder-button:hover {
+  background: goldenrod;
+
+  color: black;
+}
+
+.page-number {
+  position: absolute;
+
+  bottom: -40px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  color: rgba(255, 248, 220, 0.85);
+
+  font-size: 14px;
+
+  letter-spacing: 1px;
+}
+
+.single-page-book {
+  width: 560px;
+}
+
+.single-page-book::after {
+  display: none;
+}
+
+.single-page-book .page {
+  width: 100%;
+}
+
+.FirstPageH1 {
+  font-size: 75px;
+  font-family: "Cinzel", serif;
+  font-weight: bold;
+}
+
+.top-secret-stamp {
+  position: absolute;
+
+  top: 250px;
+
+  left: 50%;
+
+  transform:
+    translateX(-50%)
+    rotate(-18deg);
+
+  font-family: "Special Elite", cursive;
+
+  font-size: 72px;
+
+  font-weight: bold;
+
+  letter-spacing: 6px;
+
+  color: rgba(170, 0, 0, 0.78);
+
+  border: 6px solid rgba(170, 0, 0, 0.72);
+
+  padding: 12px 28px;
+
+  text-transform: uppercase;
+
+  pointer-events: none;
 
   mix-blend-mode: multiply;
 
-  pointer-events: none;
+  opacity: 0.82;
+
+  box-shadow:
+    0 0 12px rgba(120, 0, 0, 0.2);
 }
