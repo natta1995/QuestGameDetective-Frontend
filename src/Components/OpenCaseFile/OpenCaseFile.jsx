@@ -56,19 +56,18 @@ function OpenCaseFile({ questId, onClose }) {
 
     const data = await res.json();
 
-    if (!res.ok) {
-      setResultMessage(data.result);
-      setTheEndText(data.solutionText);
-      return;
-    }
+ if (!res.ok) {
+  setResultMessage("Something went wrong.");
+  return;
+}
 
-    setTheEndText(`Solution: ${data.solutionText}`);
+setTheEndText(`Solution: ${data.solutionText}`);
 
-    setResultMessage(
-      data.result === "Solved"
-        ? "Enastående arbete! Du har löst fallet och fångat mördaren. Scotland Yard och hela London är tacksamma för din insatts."
-        : "Åh nej, det verkar som du har anklagat fel person. Scotland Yard får ta över fallet. Bättre lycka nästa gång.",
-    );
+setResultMessage(
+  data.result === 1
+    ? "Enastående arbete! Du har löst fallet och fångat mördaren."
+    : "Åh nej, det verkar som du har anklagat fel person."
+);
   };
 
   const pages = [
