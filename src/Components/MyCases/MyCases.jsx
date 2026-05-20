@@ -21,7 +21,14 @@ function MyCases({ onClose, onOpenCase }) {
       }
 
       const data = await response.json();
-      setQuests(data);
+
+     
+      const activeQuests = data.filter(
+        (q) => q.result === 0
+      );
+
+      setQuests(activeQuests);
+      
     }
 
     fetchQuests();
@@ -49,6 +56,8 @@ function MyCases({ onClose, onOpenCase }) {
 
     setMessage("Investigation removed.");
   }
+
+  console.log(quests);
 
   return (
     <div className="my-cases-container">
