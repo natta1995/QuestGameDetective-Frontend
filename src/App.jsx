@@ -1,12 +1,15 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, } from "react-router-dom";
 import LoginPage from "./pages/Login/LoginPage.jsx";
 import RegisterPage from "./pages/Register/RegisterPage.jsx";
 import HallPage from "./pages/Hall/HallPage.jsx";
 import StudyPage from "./pages/Study/StudyPage.jsx";
+import Navbar from "./Navbar.jsx";
 // import ButlerStudyPage from "./pages/Butler/ButlerStudyPage.jsx";
 
 function App() {
   return (
+<> 
+  <Navbar />
     <Routes>
       <Route path="/" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
@@ -14,6 +17,8 @@ function App() {
       <Route path="/study" element={<StudyPage />} />
       {/* <Route path="/study/butler" element={<ButlerStudyPage />} /> */}
     </Routes>
+    
+   </> 
   );
 }
 

@@ -1,0 +1,86 @@
+.compass-menu {
+  position: fixed;
+
+  bottom: 20px;
+  right: 20px;
+
+  z-index: 1000;
+}
+
+.compass-menu img {
+  width: 70px;
+
+  cursor: pointer;
+
+  transition: transform 0.3s ease;
+}
+
+.compass-menu img:hover {
+  transform: scale(1.65);
+}
+
+.menu-dropdown {
+  position: absolute;
+  width: 250px;
+  bottom: 80px;
+  right: 0;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+
+  opacity: 0;
+  visibility: hidden;
+
+  transition: all 0.25s ease;
+
+  background: rgba(20, 14, 10, 0.95);
+
+  padding: 14px;
+
+  padding-bottom: 24px;
+
+  border-radius: 10px;
+
+  border: 1px solid rgba(201, 168, 97, 0.35);
+}
+
+.compass-menu:hover .menu-dropdown {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu-dropdown a {
+  color: #d8c59b;
+
+  text-decoration: none;
+
+  font-weight: bold;
+
+  letter-spacing: 1px;
+
+  ;
+}
+
+.menu-dropdown a:hover {
+  color: #fff2cc;
+}
+
+h4 {
+  color: #fff2cc;
+    text-decoration: none;
+
+  font-weight: bold;
+
+  letter-spacing: 1px;
+}
+
+h2 {
+  color: #fff2cc;
+    text-decoration: none;
+  margin-bottom: 0px;
+  font-weight: bold;
+
+  letter-spacing: 1px;
+}
