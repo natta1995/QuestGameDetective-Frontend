@@ -1,23 +1,42 @@
-/* .butler-view {
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  display: flex;
-  justify-content: center;
+
+.butler-page {
   position: fixed;
+
   inset: 0;
+
+  overflow: hidden;
+
+  background-size: cover;
+
+  background-position: center top;
+
   background-repeat: no-repeat;
+
   display: flex;
+
   align-items: center;
-  padding: 3rem;
+
+  justify-content: center;
+
 }
 
 .butler-message {
   max-width: 700px;
+
+  margin-top: 180px;
+
   background: rgba(20, 15, 10, 0.78);
+
   color: #f3ead8;
+
   padding: 2rem;
+
   border-radius: 12px;
+
   font-size: 1.1rem;
-} */
+
+  border: 1px solid rgba(255,255,255,0.15);
+
+  box-shadow: 0 0 25px rgba(0,0,0,0.45);
+}
+

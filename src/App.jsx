@@ -4,7 +4,7 @@ import RegisterPage from "./pages/Register/RegisterPage.jsx";
 import HallPage from "./pages/Hall/HallPage.jsx";
 import StudyPage from "./pages/Study/StudyPage.jsx";
 import Navbar from "./Navbar.jsx";
-// import ButlerStudyPage from "./pages/Butler/ButlerStudyPage.jsx";
+import ButlerStudyPage from "./pages/Butler/ButlerStudyPage.jsx";
 
 function App() {
   return (
@@ -15,7 +15,7 @@ function App() {
       <Route path="/register" element={<RegisterPage />} />
       <Route path="/hall" element={<HallPage />} />
       <Route path="/study" element={<StudyPage />} />
-      {/* <Route path="/study/butler" element={<ButlerStudyPage />} /> */}
+      <Route path="/study/butler" element={<ButlerStudyPage />} />
     </Routes>
     
    </> 

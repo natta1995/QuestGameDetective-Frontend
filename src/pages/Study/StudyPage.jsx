@@ -39,9 +39,9 @@ function StudyPage() {
               My Investigations
             </button>
 
-            {/* <Link to="/study/butler" className="secondary">
+            <Link to="/study/butler" className="secondary">
               Call the Butler
-            </Link> */}
+            </Link>
 
             <Link to="/hall" className="secondary">
               Return to Entrance Hall
