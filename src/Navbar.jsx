@@ -58,12 +58,12 @@ function Navbar() {
       <img src={compassImg} alt="menu compass" />
 
       <div className="menu-dropdown">
-        <h2>Menu</h2>
+        <h2>Meny</h2>
 
-        <h4>Points: {points}</h4>
-        <h4>Solved cases: {solvedCases}</h4>
-        <h4>Failed cases: {failedCases}</h4>
-        <h4>All played cases: {allPlayedCases}</h4>
+        <h4>Poäng: {points}</h4>
+        <h4>Lösta fall: {solvedCases}</h4>
+        <h4>Misslyckade fall: {failedCases}</h4>
+        <h4>Alla spelade fall: {allPlayedCases}</h4>
 
         {musicOn && (
           <audio
@@ -81,7 +81,7 @@ function Navbar() {
           {musicOn ? "🔊" : "🔇"}
         </button>
 
-        <NavLink to="/">Log out</NavLink>
+        <NavLink to="/">Logga ut</NavLink>
       </div>
     </div>
   );

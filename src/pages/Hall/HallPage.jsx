@@ -13,20 +13,20 @@ function HallPage() {
       <div className="overlay" />
 
       <div className={view === "letter" ? "letter-wrapper" : "hall-card"}>
-        <h2>The Entrance Hall</h2>
-        <p className="subtitle">Consulting Detective</p>
+        <h2>Hallen</h2>
+        <p className="subtitle">Konsulterande Detektiv</p>
         {view === "menu" && (
           <>
-            <p className="room-text">
+            {/* <p className="room-text">
               The agency is quiet. A faint light spills from the study ahead.
-            </p>
+            </p> */}
 
             <Link to="/study" className="secondary">
-              Enter the Study
+              Gå in i arbetsrummet
             </Link>
 
             <button className="secondary" onClick={() => setView("letter")}>
-              Open letter from Scotland yard
+              Öppna brevet från Scotland yard
             </button>
           </>
         )}

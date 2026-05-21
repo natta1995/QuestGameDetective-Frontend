@@ -72,10 +72,10 @@ function CaseFiles({ onClose }) {
   return (
     <div className="case-files-container">
       <div className="case-files-header">
-        <h2>Available Case Files</h2>
+        <h2>Tillgängliga utredningar:</h2>
 
         <button className="close-button" onClick={onClose}>
-          Close
+          Stäng
         </button>
       </div>
 
@@ -93,7 +93,7 @@ function CaseFiles({ onClose }) {
 
               <p>{c.shortSummary}</p>
 
-              <span className="accept-text">Click to investigate</span>
+              <span className="accept-text">Klicka för att ta dig an utredningen</span>
             </div>
           </div>
         ))}
