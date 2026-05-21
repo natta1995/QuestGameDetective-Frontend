@@ -25,26 +25,26 @@ function StudyPage() {
 >
         {view === "menu" && (
           <>
-            <h2>The Study</h2>
-            <p className="subtitle">Consulting Detective</p>
-            <p className="room-text">
+            <h2>Arbetsrummet</h2>
+            <p className="subtitle">Konsulterande Detektiv</p>
+            {/* <p className="room-text">
               The fire crackles softly. Case files rest upon your desk.
-            </p>
+            </p> */}
 
             <button onClick={() => setView("caseFiles")}>
-              View Case Files
+              Granska filerna från Scotland yard
             </button>
 
             <button onClick={() => setView("myCases")}>
-              My Investigations
+              Aktiva utredningar
             </button>
 
             <Link to="/study/butler" className="secondary">
-              Call the Butler
+              Tillkalla George
             </Link>
 
             <Link to="/hall" className="secondary">
-              Return to Entrance Hall
+              Återvänd till hallen
             </Link>
           </>
         )}

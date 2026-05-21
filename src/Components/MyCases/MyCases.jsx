@@ -62,10 +62,10 @@ function MyCases({ onClose, onOpenCase }) {
   return (
     <div className="my-cases-container">
       <div className="my-cases-header">
-        <h2>My Investigations</h2>
+        <h2>Mina utredningar:</h2>
 
         <button className="close-button" onClick={onClose}>
-          Close 
+          Stäng 
         </button>
       </div>
 
@@ -86,7 +86,7 @@ function MyCases({ onClose, onOpenCase }) {
             >
               <h3>{quest.title}</h3>
 
-              <span className="accept-text">Open investigation</span>
+              <span className="accept-text">Klicka för att öppna utredningen</span>
             </div>
 
            
