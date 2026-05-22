@@ -69,6 +69,8 @@ function CaseFiles({ onClose }) {
     setMessage("Case accepted.");
   }
 
+  console.log(cases)
+
   return (
     <div className="case-files-container">
       <div className="case-files-header">

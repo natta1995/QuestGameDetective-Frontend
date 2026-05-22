@@ -31,11 +31,11 @@ function StudyPage() {
               The fire crackles softly. Case files rest upon your desk.
             </p> */}
 
-            <button onClick={() => setView("caseFiles")}>
+            <button className="secondary" onClick={() => setView("caseFiles")}>
               Granska filerna från Scotland yard
             </button>
 
-            <button onClick={() => setView("myCases")}>
+            <button className="secondary" onClick={() => setView("myCases")}>
               Aktiva utredningar
             </button>
 
