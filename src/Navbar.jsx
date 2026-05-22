@@ -1,4 +1,4 @@
-import { NavLink, useLocation } from "react-router-dom";
+import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import "./Navbar.css";
 import compassImg from "./Img/compass.png";
 import backgroundMusic from "./Sounds/backgroundMusic.wav";
@@ -6,6 +6,7 @@ import { useState, useEffect } from "react";
 
 function Navbar() {
   const location = useLocation();
+  const navigate = useNavigate();
 
   const [musicOn, setMusicOn] = useState(true);
   const [solvedCases, setSolvedCases] = useState(0);
@@ -51,6 +52,12 @@ function Navbar() {
     return null;
   }
 
+  function logout() {
+    localStorage.removeItem("token");
+
+    navigate("/");
+  }
+
   const points = solvedCases * 1000 - failedCases * 100;
 
   return (
@@ -81,7 +88,9 @@ function Navbar() {
           {musicOn ? "🔊" : "🔇"}
         </button>
 
-        <NavLink to="/">Logga ut</NavLink>
+        <button className="logout-button" onClick={logout}>
+          Logga ut
+        </button>
       </div>
     </div>
   );
