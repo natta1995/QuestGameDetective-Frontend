@@ -99,3 +99,16 @@ h2 {
 
   color: #d8c59b;
 }
+
+.logout-button {
+padding: 8px;
+background-color: #d8c59b;
+font-family: 'Courier New', Courier, monospace;
+font-weight: bold;
+font-size: 18px;
+border-radius: 4px;
+}
+
+.logout-button:hover {
+  background-color: #fff2cc;
+}
