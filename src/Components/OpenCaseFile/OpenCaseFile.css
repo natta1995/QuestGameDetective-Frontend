@@ -126,8 +126,25 @@ min-height: 560px;
 }
 
 .case-photo {
-  width: 100%;
-  max-height: 380px;
+  width: 60%;
+  max-height: 280px;
+
+  object-fit: cover;
+  object-position: top;
+
+  border: 8px solid #f3e3b8;
+  margin-bottom: 16px;
+
+  box-shadow: 0 10px 18px rgba(0, 0, 0, 0.45);
+
+  filter: sepia(0.25) contrast(0.95);
+
+  transform: rotate(-1deg);
+}
+
+.case-photo-clue {
+  width: 90%;
+  max-height: 300px;
 
   object-fit: cover;
   object-position: top;
@@ -149,18 +166,17 @@ min-height: 560px;
   margin-bottom: 14px;
   padding: 12px;
 
-  background: rgba(255, 248, 220, 0.55);
+  background: none;
 
-  border: 1px solid rgba(58, 36, 20, 0.25);
+  
 
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.18);
 
   transform: rotate(-0.4deg);
 }
 
 .suspect-img {
-  width: 90px;
-  height: 115px;
+  width: 140px;
+  height: 165px;
 
   object-fit: cover;
 
@@ -562,4 +578,21 @@ p {
   color: rgb(206, 77, 77);
   border-color: rgb(206, 77, 77);
   
+}
+
+.paper-page {
+background: rgba(255, 248, 220, 0.55);
+  padding: 22px;
+
+  min-height: 92%;
+
+  border: 1px solid rgba(80, 60, 35, 0.18);
+
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.15),
+    inset 0 0 30px rgba(120, 95, 55, 0.05);
+
+  transform: rotate(-0.4deg);
+
+  position: relative;
 }

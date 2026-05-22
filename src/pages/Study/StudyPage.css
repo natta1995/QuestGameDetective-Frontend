@@ -159,3 +159,16 @@ button {
   box-shadow: none;
   backdrop-filter: none;
 }
+
+.study-page button.secondary {
+  background: transparent;
+  font-family: 'Times New Roman';
+  border: 1px solid goldenrod;
+  color: goldenrod;
+  font-size: 16px;
+}
+
+.study-page button.secondary:hover {
+  background: goldenrod;
+  color: black;
+}
