@@ -42,9 +42,9 @@ function RegisterPage() {
       <div className="overlay" />
 
       <form className="register-card" onSubmit={handleRegister}>
-        <h2>Register</h2>
+        <h2>Registrera</h2>
 
-        <p className="subtitle">Consulting Detective</p>
+        <p className="subtitle">Konsulterande Detektiv</p>
 
         <input
           type="text"
@@ -67,13 +67,13 @@ function RegisterPage() {
           onChange={(e) => setPassword(e.target.value)}
         />
 
-        <button type="submit">Register</button>
+        <button type="submit">Registrera konto</button>
 
         {message && <p>{message}</p>}
 
-        <p>Have you an account already?</p>
+        <p>Har du redan ett konto?</p>
            <Link to="/" className="secondary">
-        Login
+        Logga in
            </Link>
       </form>
       
