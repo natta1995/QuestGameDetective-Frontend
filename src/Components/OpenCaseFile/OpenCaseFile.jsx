@@ -7,6 +7,7 @@ function OpenCaseFile({ questId, onClose }) {
   const [selectedSuspect, setSelectedSuspect] = useState(null);
   const [selectedImg, setSelectedImg] = useState(null);
   const [resultMessage, setResultMessage] = useState("");
+  const [clueText, setClueText] = useState("");
   const [theEndText, setTheEndText] = useState("");
   const [caseFile, setCaseFile] = useState(null);
   const [page, setPage] = useState(0);
@@ -62,6 +63,7 @@ function OpenCaseFile({ questId, onClose }) {
 }
 
 setTheEndText(`Solution: ${data.solutionText}`);
+setClueText(`Ledtrågarna: ${data.solutionClues}`);
 
 setResultMessage(
   data.result === 1
@@ -91,7 +93,7 @@ setResultMessage(
       ),
     },
     {
-            left: (
+      left: (
         <>
           <h1>Brev till utredaren</h1>
           <p>Detta är ett av de fall som Scotland Yard har på sitt bord.</p>
@@ -121,24 +123,31 @@ setResultMessage(
           onClick={() => setSelectedImg(`/img/cases/${caseFile.victimImg}`)}
         />
         <p className="cops-handmade-notes">Offret: {caseFile.victim}</p>
+        <p className="cops-handmade-notes"> Ålder: {caseFile.victimAge}</p>
+         <p className="cops-handmade-notes"> Arbete: {caseFile.victimJob}</p>
+          <p className="cops-handmade-notes"> Biografi: {caseFile.victimLifeSituation}</p>
        </> 
       ),
       right: (
         <>
           <h4 className="cops-handmade-notes" >{caseFile.title}</h4>
-          <p className="cops-handmade-notes">Brottsplatsundersökning: {caseFile.place}</p>
-          <p className="cops-handmade-notes">Dödsorsak: {caseFile.weapon}</p>
+          <p className="cops-handmade-notes">Brottsplat: {caseFile.place}</p>
+          <p className="cops-handmade-notes">Dödsorsak: {caseFile.causeOfDeath}</p>
+          <p className="cops-handmade-notes">Mordvapen: {caseFile.weapon}</p>
         </>
       ),
     },
     {
       left: (
+        <>
         <img
           src={`/img/cases/${caseFile.crimeSceneImg}`}
           className="case-photo clickable-image"
           alt="Crime Scene"
           onClick={() => setSelectedImg(`/img/cases/${caseFile.crimeSceneImg}`)}
         />
+        <p className="cops-handmade-notes">{caseFile.crimeSceneImgText}</p>
+        </>
       ),
       right: (
         <>
@@ -148,6 +157,26 @@ setResultMessage(
         </>
       ),
     },
+    {
+      left: (
+        <>
+        <img
+          src={`/img/cases/${caseFile.clueImg}`}
+          className="case-photo clickable-image"
+          alt="Victim"
+          onClick={() => setSelectedImg(`/img/cases/${caseFile.clueImg}`)}
+        />
+        <p className="cops-handmade-notes"> {caseFile.clueImgText} </p>
+        
+       </> 
+      ),
+      right: (
+        <>
+      
+        </>
+      ),
+    },
+    
     {
       left: (
         <>
@@ -181,6 +210,9 @@ setResultMessage(
             <div>
               <h4>{suspects[1]?.name}</h4>
               <h4>{suspects[1]?.role}</h4>
+              <p>{suspects[1]?.age}</p>
+              <p>{suspects[1]?.job}</p>
+              <p>{suspects[1]?.lifeSituation}</p>
               <p>{suspects[1]?.statement}</p>
             </div>
           </div>
@@ -247,11 +279,12 @@ setResultMessage(
       right: (
         <>
           <img
-            src={`/img/cases/${caseFile.clueImg}`}
+            src={`/img/cases/${caseFile.secondClueImg}`}
             className="case-photo clickable-image"
             alt="Clue?"
-            onClick={() => setSelectedImg(`/img/cases/${caseFile.clueImg}`)}
+            onClick={() => setSelectedImg(`/img/cases/${caseFile.secondClueImg}`)}
           />
+          <p className="cops-handmade-notes">{caseFile.secondClueImgText}</p>
         </>
       ),
     },
@@ -278,6 +311,28 @@ setResultMessage(
           </label>
         ))}
 
+        <label className="accuse-option">
+  <input
+    type="radio"
+    name="suspect"
+    checked={selectedSuspect === 4}
+    onChange={() => setSelectedSuspect(4)}
+  />
+
+  <span>Självmord</span>
+</label>
+
+<label className="accuse-option">
+  <input
+    type="radio"
+    name="suspect"
+    checked={selectedSuspect === 5}
+    onChange={() => setSelectedSuspect(5)}
+  />
+
+  <span>Naturliga orsaker</span>
+</label>
+
         <button
           className="accuse-button"
           onClick={accuseSuspect}
@@ -290,6 +345,7 @@ setResultMessage(
         {resultMessage && <p>{resultMessage}</p>}
 
         {theEndText && <p>{theEndText}</p>}
+        {clueText && <p>{clueText}</p>}
       </>
     )}
   </>
