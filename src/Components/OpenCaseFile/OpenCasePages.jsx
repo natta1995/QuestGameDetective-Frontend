@@ -245,7 +245,7 @@ export function getCasePages(
               </label>
 
               <button className="accuse-button" onClick={accuseSuspect}>
-                Accuse a Suspect
+                Anklaga misstänkt
               </button>
             </>
           ) : (

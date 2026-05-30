@@ -126,7 +126,7 @@ setResultMessage(
     onClick={() => setPage(page - 1)}
     disabled={page === 0}
   >
-    ◀ Previous
+    ◀ Förgående
   </button>
 
   <button
@@ -134,14 +134,14 @@ setResultMessage(
     onClick={() => setPage(page + 1)}
     disabled={page === pages.length - 1}
   >
-    Next ▶
+    Nästa ▶
   </button>
 
   <button
     className="close-folder-button"
     onClick={onClose}
   >
-    Close
+    Stäng
   </button>
 
 
