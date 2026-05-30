@@ -1,6 +1,6 @@
 import { useState } from "react";
 import bgImg from "../../Img/BgAuthImg.png";
-import "./RegisterPage.css"
+import "./RegisterPage.css";
 import { Link } from "react-router-dom";
 
 function RegisterPage() {
@@ -35,10 +35,7 @@ function RegisterPage() {
   }
 
   return (
- <div
-      className="register-page"
-      style={{ backgroundImage: `url(${bgImg})` }}
-    >
+    <div className="register-page" style={{ backgroundImage: `url(${bgImg})` }}>
       <div className="overlay" />
 
       <form className="register-card" onSubmit={handleRegister}>
@@ -71,14 +68,14 @@ function RegisterPage() {
 
         {message && <p>{message}</p>}
 
-        <p>Har du redan ett konto?</p>
-           <Link to="/" className="secondary">
-        Logga in
-           </Link>
+        <p>
+          Har du redan ett konto?{" "}
+          <Link to="/" className="link">
+            Logga in här
+          </Link>
+        </p>
       </form>
-      
     </div>
-
   );
 }
 
