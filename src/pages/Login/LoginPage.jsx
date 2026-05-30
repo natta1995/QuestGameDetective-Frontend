@@ -59,11 +59,11 @@ function LoginPage() {
 
         <button type="submit">Logga in</button>
 
-        <p>Har du inget konto ännu?</p>
+        <p>Har du inget konto ännu? <Link to="/register" className="link" >
+          Registrera dig här
+        </Link></p>
 
-        <Link to="/register" className="secondary">
-          Registrera dig
-        </Link>
+     
 
         {message && <p>{message}</p>}
       </form>
