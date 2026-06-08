@@ -88,6 +88,25 @@ button {
   color: black;
 }
 
+.move-button {
+  display: inline-block;
+  padding: 10px;
+  border-radius: 5px; 
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid goldenrod;
+  background: goldenrod;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s ease; 
+}
+
+.move-button:hover {
+  background: transparent;
+  color: goldenrod;
+}
+
 .subtitle {
   font-size: 12px;
   color: rgba(212, 175, 55, 0.7); /* mjuk guld */

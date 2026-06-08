@@ -33,13 +33,13 @@ function HallPage() {
 
             <p className="subtitle">Konsulterande Detektiv</p>
 
-            <Link to="/study" className="secondary">
-              Gå in i arbetsrummet
-            </Link>
-
             <button className="secondary" onClick={() => setView("letter")}>
               Öppna brevet från Scotland Yard
             </button>
+
+            <Link to="/study" className="move-button">
+             Stig in i arbetsrummet → 
+            </Link>
           </>
         )}
 

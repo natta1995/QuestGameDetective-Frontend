@@ -32,19 +32,19 @@ function StudyPage() {
             </p> */}
 
             <button className="secondary" onClick={() => setView("caseFiles")}>
-              Granska filerna från Scotland yard
+              Ta på dig ett fall ifrån Scotland yard
             </button>
 
             <button className="secondary" onClick={() => setView("myCases")}>
-              Aktiva utredningar
+              Mina aktiva utredningar
             </button>
 
-            <Link to="/study/butler" className="secondary">
+            {/* <Link to="/study/butler" className="secondary">
               Tillkalla George
-            </Link>
+            </Link> */}
 
-            <Link to="/hall" className="secondary">
-              Återvänd till hallen
+            <Link to="/hall" className="move-button">
+              ↩ Återvänd till hallen 
             </Link>
           </>
         )}
