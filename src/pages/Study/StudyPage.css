@@ -66,7 +66,7 @@
   );
 }
 
-.study-card button {
+ .study-card button {
   padding: 10px;
   border: none;
   border-radius: 5px;
@@ -75,17 +75,11 @@
   cursor: pointer;
   font-weight: bold;
   transition: all 0.2s ease;
-}
+} 
 
 .study-card button:hover {
   transform: scale(1.03);
   box-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
-}
-
-.study-card button.secondary {
-  background: transparent;
-  border: 1px solid goldenrod;
-  color: goldenrod;
 }
 
 .study-card button.secondary {
@@ -101,7 +95,7 @@
 
 button {
   cursor: pointer;
-}
+} 
 
 .secondary {
   display: inline-block;
@@ -160,7 +154,7 @@ button {
   backdrop-filter: none;
 }
 
-.study-page button.secondary {
+/* .study-page button.secondary {
   background: transparent;
   font-family: 'Times New Roman';
   border: 1px solid goldenrod;
@@ -171,4 +165,24 @@ button {
 .study-page button.secondary:hover {
   background: goldenrod;
   color: black;
+} */
+
+.move-button {
+  display: inline-block;
+  padding: 10px;
+  border-radius: 5px; 
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid goldenrod;
+  background: goldenrod;
+  color: black;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.2s ease; 
+  
+}
+
+.move-button:hover {
+  background: transparent;
+  color: goldenrod;
 }
