@@ -39,9 +39,9 @@ function StudyPage() {
               Mina aktiva utredningar
             </button>
 
-            {/* <Link to="/study/butler" className="secondary">
+            <Link to="/study/butler" className="secondary">
               Tillkalla George
-            </Link> */}
+            </Link>
 
             <Link to="/hall" className="move-button">
               ↩ Återvänd till hallen 

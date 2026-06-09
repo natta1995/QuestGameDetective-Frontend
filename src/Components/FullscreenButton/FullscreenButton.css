@@ -1,0 +1,32 @@
+.fullscreen-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+
+    width: 42px;
+    height: 42px;
+
+    border: none;
+    border-radius: 8px;
+
+    background-color: rgba(0, 0, 0, 0.6);
+    
+    color: goldenrod;
+
+    font-size: 1.2rem;
+    cursor: pointer;
+
+    z-index: 9999;
+
+    transition: background-color 0.2s ease,
+                transform 0.2s ease;
+}
+
+.fullscreen-button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    transform: scale(1.05);
+}
+
+.fullscreen-button:active {
+    transform: scale(0.95);
+}

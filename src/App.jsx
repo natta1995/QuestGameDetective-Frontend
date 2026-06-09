@@ -5,11 +5,13 @@ import HallPage from "./pages/Hall/HallPage.jsx";
 import StudyPage from "./pages/Study/StudyPage.jsx";
 import Navbar from "./Navbar.jsx";
 import ButlerStudyPage from "./pages/Butler/ButlerStudyPage.jsx";
+import FullscreenButton from "./Components/FullscreenButton/FullscreenButton.jsx";
 
 function App() {
   return (
 <> 
   <Navbar />
+  <FullscreenButton />
     <Routes>
       <Route path="/" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
