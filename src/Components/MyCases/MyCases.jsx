@@ -57,7 +57,6 @@ function MyCases({ onClose, onOpenCase }) {
     setMessage("Investigation removed.");
   }
 
-  console.log(quests);
 
   return (
     <div className="my-cases-container">

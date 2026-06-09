@@ -63,8 +63,6 @@ function LoginPage() {
           Registrera dig här
         </Link></p>
 
-     
-
         {message && <p>{message}</p>}
       </form>
     </div>

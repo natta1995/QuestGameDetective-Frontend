@@ -44,9 +44,9 @@ export function getCasePages(
 
       <p>Klicka på bilder för att granska dem närmare.</p>
 
-      <p>I slutet av akten får du anklaga en misstänkt.</p>
+      <p>I slutet av akten lämnar ni in er slutsats.</p>
 
-      <p>Men tänk efter noga — du har bara ett försök.</p>
+      <p>Tänk efter noga — ni har bara ett försök.</p>
 
       <p>Lycka till, detektiv.</p>
       </div>
@@ -103,7 +103,17 @@ export function getCasePages(
     },
     {
       left: (
-        <>
+            <>
+        <div className="paper-page">
+          <h3 className="cops-handmade-notes">Brottsplats undersökning:</h3>
+          <p className="cops-handmade-notes">
+            {caseFile.crimeSceneDescription}
+          </p>
+          </div>
+        </>
+      ),
+      right: (
+          <>
          <div className="paper-page">
           <img
             src={`/img/cases/${caseFile.crimeSceneImg}`}
@@ -117,22 +127,10 @@ export function getCasePages(
           </div>
         </>
       ),
-      right: (
-        <>
-        <div className="paper-page">
-          <h3 className="cops-handmade-notes">Brottsplats undersökning:</h3>
-          <p className="cops-handmade-notes">
-            {caseFile.crimeSceneDescription}
-          </p>
-          </div>
-        </>
-      ),
     },
     {
-      left: <></>,
-      right: (
-        <>
-          <div className="paper-page">
+      left: <>
+         <div className="paper-page">
           <img
             src={`/img/cases/${caseFile.clueImg}`}
             className="case-photo-clue clickable-image"
@@ -141,7 +139,23 @@ export function getCasePages(
           />
           <p className="cops-handmade-notes"> {caseFile.clueImgText} </p>
           </div>
+      </>,
+      right: (
+        <> 
+       
+         <div className="paper-page">
+          <img
+            src={`/img/cases/${caseFile.secondClueImg}`}
+            className="case-photo-clue clickable-image"
+            alt="Clue?"
+            onClick={() =>
+              setSelectedImg(`/img/cases/${caseFile.secondClueImg}`)
+            }
+          />
+          <p className="cops-handmade-notes">{caseFile.secondClueImgText}</p>
+          </div>
         </>
+        
       ),
     },
 
@@ -181,25 +195,6 @@ export function getCasePages(
         </>
       ),
     })),
-
-    {
-      left: <></>,
-      right: (
-        <>
-         <div className="paper-page">
-          <img
-            src={`/img/cases/${caseFile.secondClueImg}`}
-            className="case-photo-clue clickable-image"
-            alt="Clue?"
-            onClick={() =>
-              setSelectedImg(`/img/cases/${caseFile.secondClueImg}`)
-            }
-          />
-          <p className="cops-handmade-notes">{caseFile.secondClueImgText}</p>
-          </div>
-        </>
-      ),
-    },
     {
       left: (
         <>
