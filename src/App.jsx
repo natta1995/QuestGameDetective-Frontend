@@ -6,6 +6,7 @@ import StudyPage from "./pages/Study/StudyPage.jsx";
 import Navbar from "./Navbar.jsx";
 import ButlerStudyPage from "./pages/Butler/ButlerStudyPage.jsx";
 import FullscreenButton from "./Components/FullscreenButton/FullscreenButton.jsx";
+import ProtectedRoute from "./Components/ProtectedRoute/ProtectedRoute.jsx";
 
 function App() {
   return (
@@ -15,9 +16,20 @@ function App() {
     <Routes>
       <Route path="/" element={<LoginPage />} />
       <Route path="/register" element={<RegisterPage />} />
-      <Route path="/hall" element={<HallPage />} />
-      <Route path="/study" element={<StudyPage />} />
-      <Route path="/study/butler" element={<ButlerStudyPage />} />
+      <Route path="/hall" element={
+        <ProtectedRoute>
+          <HallPage />
+        </ProtectedRoute>
+      } />
+      <Route path="/study" element={ 
+        <ProtectedRoute>
+          <StudyPage />
+        </ProtectedRoute>} />
+      <Route path="/study/butler" element={
+        <ProtectedRoute>
+          <ButlerStudyPage />
+        </ProtectedRoute>
+      } />
     </Routes>
     
    </> 
