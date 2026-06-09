@@ -11,6 +11,7 @@ export function getCasePages(
   theEndText,
   resultMessage,
   clueText,
+  onClose
 ) {
   const pages = [
     {
@@ -202,9 +203,15 @@ export function getCasePages(
     {
       left: (
         <>
-          {!theEndText ? (
+        <div className="paper-page-final">
+      
             <>
-              <h3>Nu är det upp till dig...</h3>
+              <h3>SLUTRAPPORT - Scotland Yard</h3>
+              <p>Scotland Yard inväntar din bedömning.</p>
+              <p>Du har nu granskat vittnesmål,
+                bevismaterial och fotografier.
+                Vilken förklaring anser du bäst
+                stämmer överens med utredningen?</p>
               
 
               {suspects.map((s, index) => (
@@ -217,7 +224,7 @@ export function getCasePages(
                   />
 
                   <span>
-                    {s.name} - {s.role}
+                   Mord - {s.name} - {s.role}
                   </span>
                 </label>
               ))}
@@ -245,17 +252,13 @@ export function getCasePages(
               </label>
 
               <button className="accuse-button" onClick={accuseSuspect}>
-                Anklaga misstänkt
+                Lämna in slutsats
               </button>
             </>
-          ) : (
-            <>
-              {resultMessage && <p>{resultMessage}</p>}
-
-              {theEndText && <p>{theEndText}</p>}
-              {clueText && <p>{clueText}</p>}
-            </>
-          )}
+          
+           
+       
+          </div>
         </>
       ),
       right: <></>,
