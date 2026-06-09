@@ -69,7 +69,6 @@ function CaseFiles({ onClose }) {
     setMessage("Case accepted.");
   }
 
-  console.log(cases)
 
   return (
     <div className="case-files-container">
@@ -100,7 +99,7 @@ function CaseFiles({ onClose }) {
           </div>
         ))}
       </div>
-                </div>
+    </div>
   );
 }
 

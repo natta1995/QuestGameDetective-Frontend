@@ -89,10 +89,6 @@ setResultMessage(
   clueText,
   onClose
 );
- 
-
-  console.log("Case file data:", caseFile);
-  console.log("Suspects data:", suspects);
 
   const isFirstPage = page === 0;
   const isLastPage = page === pages.length - 1;
