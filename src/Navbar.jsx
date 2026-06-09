@@ -3,6 +3,7 @@ import "./Navbar.css";
 import compassImg from "./Img/compass.png";
 import backgroundMusic from "./Sounds/backgroundMusic.wav";
 import { useState, useEffect } from "react";
+import { IoMdVolumeHigh, IoMdVolumeOff } from "react-icons/io";
 
 function Navbar() {
   const location = useLocation();
@@ -85,7 +86,7 @@ function Navbar() {
           </audio>
         )}
         <button className="music-toggle" onClick={() => setMusicOn(!musicOn)}>
-          {musicOn ? "🔊" : "🔇"}
+          {musicOn ? <IoMdVolumeHigh /> : <IoMdVolumeOff />}
         </button>
 
         <button className="logout-button" onClick={logout}>

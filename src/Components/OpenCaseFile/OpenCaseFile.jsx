@@ -10,6 +10,7 @@ function OpenCaseFile({ questId, onClose }) {
   const [resultMessage, setResultMessage] = useState("");
   const [clueText, setClueText] = useState("");
   const [theEndText, setTheEndText] = useState("");
+  const [isCorrect, setIsCorrect] = useState(null);
   const [caseFile, setCaseFile] = useState(null);
   const [page, setPage] = useState(0);
 
@@ -66,6 +67,8 @@ function OpenCaseFile({ questId, onClose }) {
 setTheEndText(`Solution: ${data.solutionText}`);
 setClueText(`Ledtrågarna: ${data.solutionClues}`);
 
+setIsCorrect(data.result === 1 ? true : false);
+
 setResultMessage(
   data.result === 1
     ? "Enastående arbete! Du har löst fallet och fångat mördaren."
@@ -83,7 +86,8 @@ setResultMessage(
   accuseSuspect,
   theEndText,
   resultMessage,
-  clueText
+  clueText,
+  onClose
 );
  
 
@@ -152,7 +156,32 @@ setResultMessage(
           <img src={selectedImg} className="image-modal-content" />
         </div>
       )}
+
+      {theEndText && (
+  <div className="result-modal-overlay">
+    <div className="result-modal">
+      {isCorrect !== null ? (
+        isCorrect ? (
+          <div className="solved-stamp">SCOTLAND YARD GODKÄNNER DIN SLUTSATS</div>
+        ) : (
+          <div className="failed-stamp">SCOTLAND YARD AVVISAR DIN SLUTSATS</div>
+        )
+      ) : null}
+      {resultMessage && <p>{resultMessage}</p>}
+      <h3>Lösning:</h3>
+      {theEndText && <p>{theEndText}</p>}
+      <h3>Ledtrågarna:</h3>
+      {clueText && <p>{clueText}</p>}
+
+      <button className="close-solution" onClick={onClose}>
+        Stäng akten
+      </button>
     </div>
+  </div>
+)}
+    </div>
+
+    
   );
 }
 

@@ -380,9 +380,9 @@ p {
 .close-folder-button {
   position: absolute;
 
-  top: -5px;
+  top: 0px;
 
-  right: 0;
+  right: 10;
 
   padding: 10px 16px;
 
@@ -570,13 +570,15 @@ p {
 
   margin-right: auto;
 
-  margin-top: 80px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .accuse-button:hover {
   background: none;
-  color: rgb(206, 77, 77);
-  border-color: rgb(206, 77, 77);
+  color: white;
+  border-color: #8b0000;
+  background: #8b0000;
   
 }
 
@@ -595,4 +597,104 @@ background: rgba(255, 248, 220, 0.55);
   transform: rotate(-0.4deg);
 
   position: relative;
+}
+
+.paper-page-final {
+  background: rgba(255, 248, 220, 0.55);
+  padding: 22px;
+
+
+  border: 1px solid rgba(80, 60, 35, 0.18);
+
+  box-shadow:
+    0 4px 12px rgba(0, 0, 0, 0.15),
+    inset 0 0 30px rgba(120, 95, 55, 0.05);
+
+  transform: rotate(-0.4deg);
+
+  position: relative;
+}
+
+.result-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  backdrop-filter: blur(4px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 10000;
+}
+
+.result-modal {
+  height: 80%;
+  max-width: 80%;
+  padding: 32px;
+
+  background: #f3e3b8;
+  color: #2b1b10;
+
+  border: 2px solid #8b6f1f;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
+
+  text-align: center;
+}
+
+.accuse-option {
+  gap: 4px;
+  margin-bottom: 2px;
+  margin-top: 2px;
+}
+
+.close-solution {
+  position: absolute;
+
+  padding: 10px 16px;
+
+  background: rgba(15, 15, 15, 0.92);
+
+  color: #d4af37;
+
+  border: 1px solid rgba(212, 175, 55, 0.45);
+
+  border-radius: 8px;
+
+  font-weight: bold;
+
+  cursor: pointer;
+
+  transition: all 0.2s ease;
+
+  pointer-events: auto;
+
+  z-index: 50;
+}
+
+.close-solution:hover {
+  background: goldenrod;
+  color: black;
+}
+
+.solved-stamp {
+  font-family: "Bebas Neue";
+  font-size: 38px;
+  color: #006400;
+  border: 4px solid #006400;
+  padding: 12px 28px;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-top: 20px;
+}
+
+.failed-stamp {
+  font-family: "Bebas Neue";
+  font-size: 38px;
+  color: #8b0000;
+  border: 4px solid #8b0000;
+  padding: 12px 28px;
+  text-transform: uppercase;
+  display: inline-block;
+  margin-top: 20px;
 }
