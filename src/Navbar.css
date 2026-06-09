@@ -53,14 +53,9 @@
 
 .menu-dropdown a {
   color: goldenrod;
-
   text-decoration: none;
-
   font-weight: bold;
-
   letter-spacing: 1px;
-
-  ;
 }
 
 .menu-dropdown a:hover {
@@ -69,16 +64,14 @@
 
 h4 {
   color: goldenrod;
-    text-decoration: none;
-
+  text-decoration: none;
   font-weight: bold;
-
   letter-spacing: 1px;
 }
 
 h2 {
   color: goldenrod;
-    text-decoration: none;
+  text-decoration: none;
   margin-bottom: 0px;
   font-weight: bold;
 
@@ -89,14 +82,10 @@ h2 {
   position: absolute;
   top: 10px;
   right: 10px;
-
   background: none;
   border: none;
-
   font-size: 30px;
-
   cursor: pointer;
-
   color: goldenrod;
 }
 
