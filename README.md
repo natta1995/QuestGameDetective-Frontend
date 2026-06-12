@@ -57,6 +57,23 @@ Frontend är deployad online.
 
 Observera att backend-API:t kräver egen connection string och JWT-nyckel vid lokal körning.
 
+# Bilder
+
+### Inloggning
+<img src="README-Images/Login.png" width="800" alt="Inloggning" />
+
+### Hallen
+<img src="README-Images/Hall.png" width="800" alt="Hall" />
+
+### Arbetsrummet
+<img src="README-Images/Study.png" width="800" alt="Arbetsrummet" />
+
+### Mina utredningar / fall
+<img src="README-Images/MyCases.png" width="800" alt="Mina fall" />
+
+### Öppen utredningsfil
+
+<img src="README-Images/CasefileOpen.png" width="800" alt="Öppen mapp" />
 
 # Spelflöde
 
