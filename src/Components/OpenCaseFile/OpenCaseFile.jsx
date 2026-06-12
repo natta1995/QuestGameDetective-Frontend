@@ -163,14 +163,14 @@ setResultMessage(
           <div className="failed-stamp">SCOTLAND YARD AVVISAR DIN SLUTSATS</div>
         )
       ) : null}
-      {resultMessage && <p>{resultMessage}</p>}
+      {resultMessage && <p className="result-message">{resultMessage}</p>}
       <h3>Lösning:</h3>
       {theEndText && <p>{theEndText}</p>}
       <h3>Ledtrågarna:</h3>
       {clueText && <p>{clueText}</p>}
-
+      
       <button className="close-solution" onClick={onClose}>
-        Stäng akten
+        Stäng
       </button>
     </div>
   </div>
