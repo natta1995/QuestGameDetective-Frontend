@@ -93,6 +93,7 @@ function CaseFiles({ onClose }) {
               <h3>{c.title}</h3>
 
               <p>{c.shortSummary}</p>
+              <p>Svårighetsgrad: {c.level}</p>
 
               <span className="accept-text">Klicka för att ta dig an utredningen</span>
             </div>
