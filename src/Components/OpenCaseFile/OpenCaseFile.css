@@ -632,11 +632,11 @@ background: rgba(255, 248, 220, 0.55);
   height: 80%;
   max-width: 80%;
   padding: 32px;
-
+  position: relative;
   background: #f3e3b8;
   color: #2b1b10;
 
-  border: 2px solid #8b6f1f;
+  border: 20px solid #8b6f1f;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8);
 
   text-align: center;
@@ -670,6 +670,11 @@ background: rgba(255, 248, 220, 0.55);
   pointer-events: auto;
 
   z-index: 50;
+
+    position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%)
 }
 
 .close-solution:hover {
@@ -697,4 +702,12 @@ background: rgba(255, 248, 220, 0.55);
   text-transform: uppercase;
   display: inline-block;
   margin-top: 20px;
+}
+
+.result-message {
+
+  font-size: 28px;
+  margin-top: 15px;
+  font-weight: bold;
+  font-family: Arial;
 }
